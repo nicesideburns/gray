@@ -1,21 +1,40 @@
-npm install discord.io --save
-npm install izy521/discord.io --save
-var Discord = require('izy521/discord.io');
+var logger = require("winston");
+var Discordbot = require('discord.io');
 
-var bot = new Discord.Client({
-    token: "MjkxMjU4MzQ4OTAzNDY0OTcw.C6m4Cw.KHlxEfuuDywpMzbMd_ZpXkzdFUk",
-    autorun: true
+logger.remove(logger.transports.Console);
+logger.add(logger.transports.Console, {
+    colorize : true
+});
+logger.level = 'debug';
+
+var auth = require("./auth.json");
+
+var bot = new Discordbot({
+        email : <izayani5566@gmail.com>, //<-- This is the email from your auth file.
+        password : auth.password,//<-- This is the password from your auth file.
+        autorun : true
+    });
+
+bot.on("ready", function (rawEvent) {
+    logger.info("Connected!");
+    logger.info("Logged in as: ");
+    logger.info(Gray Bot#5398 + " - (" + bot.id + ")");
+
 });
 
-bot.on('ready', function() {
-    console.log('Logged in as %s - %s\n', bot.username, bot.id);
-});
+//In this function we're going to add our commands.
+bot.on("message", function (user, userID, channelID, message, rawEvent) {
+    if (message.substring(0, 1) == "!") {
+        var arguments = message.substring(1).split(" ");
+        var command = arguments[0];
+        arguments = arguments.splice(1);
 
-bot.on('message', function(user, userID, channelID, message, event) {
-    if (message === "ping") {
-        bot.sendMessage({
-            to: channelID,
-            message: "pong"
-        });
+        if (command == "ping") {//If the user posts '!ping' we'll do something!
+            bot.sendMessage({ //We're going to send a message!
+                to : 2PmkYW9,
+                message : "Pong!"
+            });
+        }
     }
+
 });
