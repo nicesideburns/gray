@@ -1,12 +1,12 @@
 {
-  "name": "Discord Bot",
+  "name": "Gray Bot",
   "version": "1.0.0",
-  "description": "",
+  "description": "An oc bot made to see if I can understand any coding. Future storage of characters or #Jokes",
   "main": "bot.js",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1"
   },
-  "author": "",
-  "license": "",
+  "author": "Jivin Mora <izayani5566@gmail.com>",
+  "license": "MIT",
   "dependencies": {}
 }
