@@ -11,7 +11,7 @@ var auth = require("./auth.json");
 
 var bot = new Discordbot({
         email : <izayani5566@gmail.com>, //<-- This is the email from your auth file.
-        password : auth.password,//<-- This is the password from your auth file.
+        password : byebyebirdie,//<-- This is the password from your auth file.
         autorun : true
     });
 
